@@ -14,7 +14,7 @@
                 ms_invoice_data-invoiceduedate+6(2)
            INTO lv_duedat.
     IF ls_log IS INITIAL.
-      lv_proctype = 'S'.
+      lv_proctype = 'I'.
     ELSE.
       lv_proctype = 'U'.
     ENDIF.
