@@ -58,7 +58,8 @@
       FROM @lt_subsmap AS subscriber INNER JOIN i_customer AS customer ON customer~customer = subscriber~customer
       INNER JOIN ydbs_ddl_i_bsid AS bsid ON bsid~customer = subscriber~customer
                                         AND bsid~companycode = subscriber~companycode
-      WHERE bsid~documentdate IN @ms_request-documentdate
+      WHERE bsid~accountingdocument IN @ms_request-accountingdocument
+        AND bsid~documentdate IN @ms_request-documentdate
         AND bsid~debitcreditcode = 'S'
         AND EXISTS ( SELECT * FROM ydbs_t_doctype WHERE companycode = bsid~companycode AND document_type = bsid~accountingdocumenttype )
         AND NOT EXISTS ( SELECT * FROM ydbs_t_log WHERE companycode = bsid~companycode
@@ -128,6 +129,7 @@
 *      AND clearing_document IS NOT INITIAL
       WHERE companycode IN @ms_request-companycode
       AND bankinternalid IN @ms_request-bankinternalid
+      AND accountingdocument IN @ms_request-accountingdocument
       INTO TABLE @DATA(lt_send).
     IF sy-subrc = 0.
       SELECT bkpf~companycode,

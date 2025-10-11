@@ -5,7 +5,6 @@
     READ TABLE lt_xml INTO DATA(ls_error_text) WITH KEY node_type = mc_value_node name = 'cevapAck'.
     READ TABLE lt_xml INTO DATA(ls_fatura_durum) WITH KEY node_type = mc_value_node name = 'faturaDurum'.
     IF ls_error_code-value = '000'. "başarılı
-      APPEND VALUE #( id = mc_id type = mc_success number = 003 ) TO rt_messages.
       IF ls_fatura_durum-value = 'O'."O-Odendi, G-Geçerli, I-İptal, K-Kismi Ödendi
         es_collect_detail-payment_amount = ms_invoice_data-invoiceamount.
         es_collect_detail-payment_currency = ms_invoice_data-transactioncurrency.

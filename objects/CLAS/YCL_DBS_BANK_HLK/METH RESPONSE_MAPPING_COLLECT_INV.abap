@@ -35,7 +35,6 @@
         data             = ls_json
     ).
     IF ls_json-errordetails-errorcode IS INITIAL.
-      APPEND VALUE #( id = mc_id type = mc_success number = 003 ) TO rt_messages.
         READ TABLE ls_json-faturasorgularesponse-dbs_fatura_sorgularesult INTO data(ls_Response) WITH KEY fatura_no = ms_invoice_data-invoicenumber
                                                                                                          durum_kodu = 'O'."24.01.2024: O-Ödendi, S-Ödenecek
       es_collect_detail = VALUE #( payment_amount = ls_response-odeme_tutari

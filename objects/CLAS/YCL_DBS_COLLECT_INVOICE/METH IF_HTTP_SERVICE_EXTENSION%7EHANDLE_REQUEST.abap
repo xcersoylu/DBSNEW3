@@ -6,7 +6,8 @@
     /ui2/cl_json=>deserialize( EXPORTING json = lv_request_body CHANGING data = ms_request ).
 
     LOOP AT ms_request-invoicedata INTO DATA(ls_invoice_data) WHERE invoicestatus = mc_ready
-                                                                 OR invoicestatus = mc_deleted.
+                                                                 OR invoicestatus = mc_deleted
+                                                                 OR invoicestatus = mc_collected.
       EXIT.
     ENDLOOP.
     IF sy-subrc = 0.

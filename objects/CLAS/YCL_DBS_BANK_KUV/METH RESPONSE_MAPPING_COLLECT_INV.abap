@@ -31,7 +31,6 @@
     ).
 
     IF ls_json-result_code = '000'.
-      APPEND VALUE #( id = mc_id type = mc_success number = 003 ) TO rt_messages.
       READ TABLE ls_json-result-faturaliste INTO DATA(ls_response) WITH KEY invoiceno = ms_invoice_data-invoicenumber
                                                                             status = '1'."1-tahsil edildi, 2-tahsil edilmedi
       es_collect_detail = VALUE #( payment_amount = ls_response-amount
