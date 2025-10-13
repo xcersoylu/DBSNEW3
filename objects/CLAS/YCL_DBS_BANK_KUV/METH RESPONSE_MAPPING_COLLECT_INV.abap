@@ -33,9 +33,14 @@
     IF ls_json-result_code = '000'.
       READ TABLE ls_json-result-faturaliste INTO DATA(ls_response) WITH KEY invoiceno = ms_invoice_data-invoicenumber
                                                                             status = '1'."1-tahsil edildi, 2-tahsil edilmedi
-      es_collect_detail = VALUE #( payment_amount = ls_response-amount
-                                   payment_date = ls_response-trandate
-                                   payment_currency = ls_response-fec ).
+      IF sy-subrc = 0.
+        es_collect_detail = VALUE #( payment_amount = ls_response-amount
+                                     payment_date = ls_response-trandate
+                                     payment_currency = ls_response-fec ).
+      ELSE.
+        READ TABLE ls_json-result-faturaliste INTO ls_response WITH KEY invoiceno = ms_invoice_data-invoicenumber.
+        APPEND VALUE #( id = mc_id type = mc_error number = 020 message_v1 = ls_response-status  ) TO rt_messages.
+      ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(

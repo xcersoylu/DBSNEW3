@@ -14,7 +14,7 @@
       INTO @lv_payment_no.
 
     DATA(ls_log) = get_log(  ).
-        DATA(lv_messageno) = get_messageno(  ).
+    DATA(lv_messageno) = get_messageno(  ).
     lv_old_amount = ls_log-invoiceamount.
     lv_new_amount = ms_invoice_data-invoiceamount.
     CONDENSE: lv_old_amount, lv_new_amount.

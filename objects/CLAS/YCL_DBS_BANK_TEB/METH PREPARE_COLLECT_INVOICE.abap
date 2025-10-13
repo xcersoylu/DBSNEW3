@@ -1,7 +1,7 @@
   METHOD prepare_collect_invoice.
-    DATA : lv_amount    TYPE string,
-           lv_waers     TYPE waers,
-           lv_vade      TYPE c LENGTH 10.
+    DATA : lv_amount TYPE string,
+           lv_waers  TYPE waers,
+           lv_vade   TYPE c LENGTH 10.
     lv_amount = ms_invoice_data-invoiceamount.
     CONDENSE lv_amount.
 

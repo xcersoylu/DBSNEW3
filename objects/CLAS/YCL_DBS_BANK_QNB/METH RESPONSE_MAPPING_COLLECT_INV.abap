@@ -37,9 +37,14 @@
       ENDLOOP.
       READ TABLE lt_xml_response INTO DATA(ls_xml_response) WITH KEY faturano = ms_invoice_data-invoicenumber
                                                                      odemestatusu = 'T'.
-      es_collect_detail = VALUE #( payment_amount = ls_xml_response-faturatutari
-                                   payment_date = |{ ls_xml_response-sonodemetarihi(4) }{ ls_xml_response-sonodemetarihi+5(2) }{ ls_xml_response-sonodemetarihi+8(2) }|
-                                   payment_currency = ls_xml_response-dovizkodu ).
+      IF sy-subrc = 0.
+        es_collect_detail = VALUE #( payment_amount = ls_xml_response-faturatutari
+                                     payment_date = |{ ls_xml_response-sonodemetarihi(4) }{ ls_xml_response-sonodemetarihi+5(2) }{ ls_xml_response-sonodemetarihi+8(2) }|
+                                     payment_currency = ls_xml_response-dovizkodu ).
+      ELSE.
+        READ TABLE lt_xml_response INTO ls_xml_response WITH KEY faturano = ms_invoice_data-invoicenumber.
+        APPEND VALUE #( id = mc_id type = mc_error number = 020 message_v1 = ls_xml_response-odemestatusu  ) TO rt_messages.
+      ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(

@@ -47,7 +47,7 @@
         CHANGING
           data             = ls_json_success
       ).
-      APPEND VALUE #( id = mc_id type = mc_success number = 003 ) TO rt_messages.
+      APPEND VALUE #( id = mc_id type = mc_success number = 023 ) TO rt_messages.
     ENDIF.
 
   ENDMETHOD.

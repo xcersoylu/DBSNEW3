@@ -35,11 +35,16 @@
         data             = ls_json
     ).
     IF ls_json-errordetails-errorcode IS INITIAL.
-        READ TABLE ls_json-faturasorgularesponse-dbs_fatura_sorgularesult INTO data(ls_Response) WITH KEY fatura_no = ms_invoice_data-invoicenumber
-                                                                                                         durum_kodu = 'O'."24.01.2024: O-Ödendi, S-Ödenecek
-      es_collect_detail = VALUE #( payment_amount = ls_response-odeme_tutari
-                                   payment_date = ls_response-odeme_tarihi
-                                   payment_currency = ls_response-para_birimi ).
+      READ TABLE ls_json-faturasorgularesponse-dbs_fatura_sorgularesult INTO DATA(ls_response) WITH KEY fatura_no = ms_invoice_data-invoicenumber
+                                                                                                       durum_kodu = 'O'."24.01.2024: O-Ödendi, S-Ödenecek
+      IF sy-subrc = 0.
+        es_collect_detail = VALUE #( payment_amount = ls_response-odeme_tutari
+                                     payment_date = ls_response-odeme_tarihi
+                                     payment_currency = ls_response-para_birimi ).
+      ELSE.
+        READ TABLE ls_json-faturasorgularesponse-dbs_fatura_sorgularesult INTO ls_response WITH KEY fatura_no = ms_invoice_data-invoicenumber.
+        APPEND VALUE #( id = mc_id type = mc_error number = 020 message_v1 = ls_response-durum_kodu ) TO rt_messages.
+      ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(

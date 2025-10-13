@@ -398,6 +398,42 @@
     "DOKLRELES":"",
     "DOKLDATE":"0000-00-00",
     "DOKLTIME":"00:00:00"
+   },
+   {
+    "ID":"NA",
+    "OBJECT":"YDBS_MC022",
+    "LANGU":"D",
+    "TYP":"E",
+    "DOKVERSION":1,
+    "DOKSTATE":"N",
+    "DOKFORM":"S_DOCU_SHOW",
+    "DOKSTYLE":"S_DOCUS1",
+    "DOKFUSER":"SAP_CUSTOMER",
+    "DOKFRELES":"",
+    "DOKFDATE":"0000-00-00",
+    "DOKFTIME":"00:00:00",
+    "DOKLUSER":"SAP_CUSTOMER",
+    "DOKLRELES":"",
+    "DOKLDATE":"0000-00-00",
+    "DOKLTIME":"00:00:00"
+   },
+   {
+    "ID":"NA",
+    "OBJECT":"YDBS_MC023",
+    "LANGU":"D",
+    "TYP":"E",
+    "DOKVERSION":1,
+    "DOKSTATE":"N",
+    "DOKFORM":"S_DOCU_SHOW",
+    "DOKSTYLE":"S_DOCUS1",
+    "DOKFUSER":"SAP_CUSTOMER",
+    "DOKFRELES":"",
+    "DOKFDATE":"0000-00-00",
+    "DOKFTIME":"00:00:00",
+    "DOKLUSER":"SAP_CUSTOMER",
+    "DOKLRELES":"",
+    "DOKLDATE":"0000-00-00",
+    "DOKLTIME":"00:00:00"
    }
   ]
  },
@@ -646,6 +682,28 @@
     "TXTLINES":0,
     "DOKSTATE":"N",
     "SELFDEF":"3"
+   },
+   {
+    "ID":"NA",
+    "OBJECT":"YDBS_MC022",
+    "LANGU":"D",
+    "TYP":"E",
+    "VERSION":1,
+    "MASTERLANG":"X",
+    "TXTLINES":0,
+    "DOKSTATE":"N",
+    "SELFDEF":"3"
+   },
+   {
+    "ID":"NA",
+    "OBJECT":"YDBS_MC023",
+    "LANGU":"D",
+    "TYP":"E",
+    "VERSION":1,
+    "MASTERLANG":"X",
+    "TXTLINES":0,
+    "DOKSTATE":"N",
+    "SELFDEF":"3"
    }
   ]
  },
@@ -786,6 +844,18 @@
     "TEXT":"Limit Updated. Customer: &1 Company Code:&2"
    },
    {
+    "SPRSL":"E",
+    "ARBGB":"YDBS_MC",
+    "MSGNR":"022",
+    "TEXT":"Invoice updated."
+   },
+   {
+    "SPRSL":"E",
+    "ARBGB":"YDBS_MC",
+    "MSGNR":"023",
+    "TEXT":"Invoice deleted."
+   },
+   {
     "SPRSL":"T",
     "ARBGB":"YDBS_MC",
     "MSGNR":"000",
@@ -916,6 +986,18 @@
     "ARBGB":"YDBS_MC",
     "MSGNR":"021",
     "TEXT":"Limit Güncellendi. Müşteri: &1 Şirket Kodu:&2"
+   },
+   {
+    "SPRSL":"T",
+    "ARBGB":"YDBS_MC",
+    "MSGNR":"022",
+    "TEXT":"Fatura güncellendi."
+   },
+   {
+    "SPRSL":"T",
+    "ARBGB":"YDBS_MC",
+    "MSGNR":"023",
+    "TEXT":"Fatura silindi."
    }
   ]
  },
@@ -954,154 +1036,168 @@
     "ARBGB":"YDBS_MC",
     "MSGNR":"000",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"001",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"002",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"003",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"004",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"005",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"006",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"007",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"008",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"009",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"010",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"011",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"012",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"013",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"014",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"015",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"016",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"017",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"018",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"019",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"020",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    },
    {
     "ARBGB":"YDBS_MC",
     "MSGNR":"021",
     "NAME":"SAP_CUSTOMER",
-    "DATUM":"2025-10-11",
+    "DATUM":"2025-10-13",
+    "SELFDEF":"3"
+   },
+   {
+    "ARBGB":"YDBS_MC",
+    "MSGNR":"022",
+    "NAME":"SAP_CUSTOMER",
+    "DATUM":"2025-10-13",
+    "SELFDEF":"3"
+   },
+   {
+    "ARBGB":"YDBS_MC",
+    "MSGNR":"023",
+    "NAME":"SAP_CUSTOMER",
+    "DATUM":"2025-10-13",
     "SELFDEF":"3"
    }
   ]
