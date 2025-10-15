@@ -14,6 +14,7 @@
       WHERE companycode IN @ms_request-companycode
         AND bankinternalid IN @ms_request-bankinternalid
         AND customer IN @ms_request-customer
+        and only_limit = ''
         INTO TABLE @DATA(lt_subsmap).
     DATA(lt_priority) = lt_subsmap.
     DELETE lt_priority WHERE priority IS INITIAL.

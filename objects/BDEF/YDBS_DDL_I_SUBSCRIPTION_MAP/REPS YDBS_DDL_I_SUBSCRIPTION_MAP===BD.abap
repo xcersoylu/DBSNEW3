@@ -20,5 +20,6 @@ authorization master ( instance )
       CustomerSurname  = customer_surname;
       SubscriberNumber = subscriber_number;
       Priority         = priority;
+      OnlyLimit        = only_limit;
     }
 }

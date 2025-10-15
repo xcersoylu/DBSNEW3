@@ -46,6 +46,12 @@
    {
     "SPRAS":"E",
     "OBJECT":"YDBS_APP_LOG",
+    "SUBOBJECT":"YDBS_CLEARING_LOG",
+    "SUBOBJTXT":"Clearing Log"
+   },
+   {
+    "SPRAS":"E",
+    "OBJECT":"YDBS_APP_LOG",
     "SUBOBJECT":"YDBS_LIMIT_LOG",
     "SUBOBJTXT":"Limit Log"
    },

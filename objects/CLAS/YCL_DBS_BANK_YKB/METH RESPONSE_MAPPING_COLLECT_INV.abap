@@ -5,15 +5,15 @@
               fattutar    TYPE string,
               doviz       TYPE string,
               sonodmtarih TYPE string,
-              odmtarih    type string,
+              odmtarih    TYPE string,
               odntutarytl TYPE string,
               odntutarusd TYPE string,
               refno       TYPE string,
               statu       TYPE string,
-              bilgi1      type string,
-              bilgi2      type string,
+              bilgi1      TYPE string,
+              bilgi2      TYPE string,
             END OF ty_satir,
-            tt_Satir type table of ty_satir with default key.
+            tt_satir TYPE TABLE OF ty_satir WITH DEFAULT KEY.
     DATA lt_xml_response TYPE tt_satir.
     DATA(lv_response) = iv_response.
     REPLACE ALL OCCURRENCES OF '&lt;' IN lv_response WITH '<'.
@@ -41,19 +41,25 @@
           ENDCASE.
         ENDLOOP.
       ENDLOOP.
-      READ TABLE lt_xml_response INTO DATA(ls_xml_response) WITH KEY faturano = ms_invoice_data-invoicenumber.
-      SHIFT ls_xml_response-fattutar    LEFT DELETING LEADING '0'.
-      SHIFT ls_xml_response-odntutarytl LEFT DELETING LEADING '0'.
-      IF ls_xml_response-odntutarytl IS NOT INITIAL AND ls_xml_response-odntutarytl GT 0.
-        es_collect_detail-payment_amount = ls_xml_response-odntutarytl.
-        es_collect_detail-payment_currency = 'TRY'.
+      IF sy-subrc = 0.
+        READ TABLE lt_xml_response INTO DATA(ls_xml_response) WITH KEY faturano = ms_invoice_data-invoicenumber.
+        SHIFT ls_xml_response-fattutar    LEFT DELETING LEADING '0'.
+        SHIFT ls_xml_response-odntutarytl LEFT DELETING LEADING '0'.
+        IF ls_xml_response-odntutarytl IS NOT INITIAL AND ls_xml_response-odntutarytl GT 0.
+          es_collect_detail-payment_amount = ls_xml_response-odntutarytl.
+          es_collect_detail-payment_currency = 'TRY'.
+        ELSE.
+          es_collect_detail-payment_amount = ls_xml_response-fattutar.
+          es_collect_detail-payment_currency = ls_xml_response-doviz.
+        ENDIF.
+        IF ls_xml_response-odmtarih IS NOT INITIAL.
+          CONCATENATE ls_xml_response-odmtarih(4)
+                      ls_xml_response-odmtarih+5(2)
+                      ls_xml_response-odmtarih+8(2) INTO es_collect_detail-payment_date.
+        ENDIF.
       ELSE.
-        es_collect_detail-payment_amount = ls_xml_response-fattutar.
-        es_collect_detail-payment_currency = ls_xml_response-doviz.
+        APPEND VALUE #( id = mc_id type = mc_error number = 024 ) TO rt_messages.
       ENDIF.
-      CONCATENATE ls_xml_response-odmtarih(4)
-                  ls_xml_response-odmtarih+5(2)
-                  ls_xml_response-odmtarih+8(2) INTO es_collect_detail-payment_date.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(

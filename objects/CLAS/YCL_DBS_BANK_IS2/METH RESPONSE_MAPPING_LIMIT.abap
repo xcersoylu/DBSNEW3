@@ -62,7 +62,7 @@
                           limit_date      = ls_time_info-date
                           limit_time      = ls_time_info-time
                           total_limit     = ls_result-total_limit-quantity
-                          available_limit = ls_result-available_limit-quantity ).
+                          available_limit = ls_result-limit_gap-quantity ).
     ENDLOOP.
     IF ls_limit IS NOT INITIAL.
       MODIFY ydbs_t_limit FROM @ls_limit.

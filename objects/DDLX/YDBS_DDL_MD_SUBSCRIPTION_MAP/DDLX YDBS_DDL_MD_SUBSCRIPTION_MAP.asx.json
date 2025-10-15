@@ -7,9 +7,9 @@
     "DDLXNAME":"YDBS_DDL_MD_SUBSCRIPTION_MAP",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2025-07-22",
-    "CHANGED_AT":"08:12:58",
-    "UUID":"FA163EBBCF7E1FE099DA75AABA0E254D",
+    "CHANGED_ON":"2025-10-14",
+    "CHANGED_AT":"10:25:56",
+    "UUID":"FA163EBBCF7E1FE0AA9D0555E94BA658",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"YDBS_DDL_MD_SUBSCRIPTION_MAP",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer: #CORE\r\nannotate entity YDBS_DDL_P_SUBSCRIPTION_MAP with\r\n{\r\n  @UI.facet: [ { id:            'SUBSCRIPTION',\r\n                 purpose:       #STANDARD,\r\n                 type:          #IDENTIFICATION_REFERENCE,\r\n                 label:         'Abone',\r\n                 position:      10 }  ]\r\n\r\n  @UI : { lineItem: [{  position: 10 }] , identification: [{  position: 10 }] }\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_COMPANYCODE', element: 'CompanyCode' }}]\r\n  Companycode;\r\n  @UI : { lineItem: [{  position: 20 }] , identification: [{  position: 20 }] }\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'YVH_DBS_BANKINTERNALID', element: 'Bankinternalid' }}]    \r\n  Bankinternalid;\r\n  @UI : { lineItem: [{  position: 30 }] , identification: [{  position: 30 }] }\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CUSTOMER', element: 'Customer' }}]\r\n  Customer;\r\n  @UI : { lineItem: [{  position: 40 }] , identification: [{  position: 40 }] }\r\n  CustomerName;\r\n  @UI : { lineItem: [{  position: 50 }] , identification: [{  position: 50 }] }\r\n  CustomerSurname;\r\n  @UI : { lineItem: [{  position: 60 }] , identification: [{  position: 60 }] }\r\n  SubscriberNumber;\r\n  @UI : { lineItem: [{  position: 70 }] , identification: [{  position: 70 }] }\r\n  Priority;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer: #CORE\r\nannotate entity YDBS_DDL_P_SUBSCRIPTION_MAP with\r\n{\r\n  @UI.facet: [ { id:            'SUBSCRIPTION',\r\n                 purpose:       #STANDARD,\r\n                 type:          #IDENTIFICATION_REFERENCE,\r\n                 label:         'Abone',\r\n                 position:      10 }  ]\r\n\r\n  @UI : { lineItem: [{  position: 10 }] , identification: [{  position: 10 }] }\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_COMPANYCODE', element: 'CompanyCode' }}]\r\n  Companycode;\r\n  @UI : { lineItem: [{  position: 20 }] , identification: [{  position: 20 }] }\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'YVH_DBS_BANKINTERNALID', element: 'Bankinternalid' }}]    \r\n  Bankinternalid;\r\n  @UI : { lineItem: [{  position: 30 }] , identification: [{  position: 30 }] }\r\n  @Consumption.valueHelpDefinition: [ { entity: { name: 'I_CUSTOMER', element: 'Customer' }}]\r\n  Customer;\r\n  @UI : { lineItem: [{  position: 40 }] , identification: [{  position: 40 }] }\r\n  CustomerName;\r\n  @UI : { lineItem: [{  position: 50 }] , identification: [{  position: 50 }] }\r\n  CustomerSurname;\r\n  @UI : { lineItem: [{  position: 60 }] , identification: [{  position: 60 }] }\r\n  SubscriberNumber;\r\n  @UI : { lineItem: [{  position: 70 }] , identification: [{  position: 70 }] }\r\n  Priority;\r\n  @UI : { lineItem: [{  position: 80 }] , identification: [{  position: 80 }] }\r\n  OnlyLimit;\r\n}"
    }
   ]
  },
@@ -191,6 +191,20 @@
    },
    {
     "DDLXNAME":"YDBS_DDL_MD_SUBSCRIPTION_MAP",
+    "ELEMENT":"ONLYLIMIT",
+    "NAME":"UI.IDENTIFICATION$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"80"
+   },
+   {
+    "DDLXNAME":"YDBS_DDL_MD_SUBSCRIPTION_MAP",
+    "ELEMENT":"ONLYLIMIT",
+    "NAME":"UI.LINEITEM$1$.POSITION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"80"
+   },
+   {
+    "DDLXNAME":"YDBS_DDL_MD_SUBSCRIPTION_MAP",
     "ELEMENT":"PRIORITY",
     "NAME":"UI.IDENTIFICATION$1$.POSITION",
     "ELEMENT_TYPE":"S",
@@ -248,8 +262,8 @@
     "EXTENDED_ARTIFACT":"YDBS_DDL_P_SUBSCRIPTION_MAP",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"FA163EBBCF7E1FE099DA75AABA0E254D",
-    "RT_HASH":"82CE379D974A6A26889D0765F5961FB7AD322E05",
+    "DT_UUID":"FA163EBBCF7E1FE0AA9D0555E94BA658",
+    "RT_HASH":"2C9C067ABA481EF96B763C98D94F9DF173183B30",
     "GEN_VERSION":"0",
     "TYPE":"0"
    }

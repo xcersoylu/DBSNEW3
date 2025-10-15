@@ -26,6 +26,13 @@
    {
     "DDLNAME":"YVH_DBS_CUSTOMER_BANK",
     "STRUCOBJN":"YVH_DBS_CUSTOMER_BANK",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "DDTEXT":"Customer-Bank"
+   },
+   {
+    "DDLNAME":"YVH_DBS_CUSTOMER_BANK",
+    "STRUCOBJN":"YVH_DBS_CUSTOMER_BANK",
     "DDLANGUAGE":"T",
     "AS4LOCAL":"N",
     "DDTEXT":"Müşteri-Banka"

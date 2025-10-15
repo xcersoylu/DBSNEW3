@@ -128,6 +128,13 @@
    {
     "DDLXNAME":"YDBS_DDL_MD_NONDBSINV",
     "DDLANGUAGE":"E",
+    "ELEMENT":"COMPANYCODE",
+    "NAME":"UI.FACET$1$.LABEL",
+    "TEXT":"DBS Invoice No"
+   },
+   {
+    "DDLXNAME":"YDBS_DDL_MD_NONDBSINV",
+    "DDLANGUAGE":"E",
     "ELEMENT":"INVOICENUMBER",
     "NAME":"UI.FACET$1$.LABEL",
     "TEXT":"DDS Invoice No"

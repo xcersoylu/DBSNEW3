@@ -12,7 +12,9 @@
                           limit_date      = ls_time_info-date
                           limit_time      = ls_time_info-time
                           total_limit     = VALUE #( lt_xml[ node_type = mc_value_node name = 'CreditLimit' ]-value OPTIONAL )
-                          available_limit = VALUE #( lt_xml[ node_type = mc_value_node name = 'AvailableCreditLimit' ]-value OPTIONAL ) ).
+                          available_limit =  ( VALUE #( lt_xml[ node_type = mc_value_node name = 'AvailableCreditLimit' ]-value OPTIONAL ) -
+                                            VALUE #( lt_xml[ node_type = mc_value_node name = 'StandingInvoiceAmount' ]-value OPTIONAL ) )
+                                            ).
       MODIFY ydbs_t_limit FROM @ls_limit.
       APPEND VALUE #( id = mc_id type = mc_success number = 021 message_v1 = ms_subscribe-customer
                                                                 message_v2 = ms_service_info-companycode  ) TO rt_messages.
