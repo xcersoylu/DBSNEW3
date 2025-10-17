@@ -20,12 +20,12 @@
     READ TABLE lt_xml INTO DATA(ls_error_code) WITH KEY node_type = mc_value_node name = 'errorCode'.
     READ TABLE lt_xml INTO DATA(ls_error_text) WITH KEY node_type = mc_value_node name = 'errorDescription'.
     IF ls_error_code-value = 'THS01'. "başarılı
-      LOOP AT lt_xml INTO DATA(ls_xml_line) WHERE name = 'bayiReferans'
+      LOOP AT lt_xml INTO DATA(ls_xml_line) WHERE name = 'faturaSorgulaHYTKResult'
                                               AND node_type = 'CO_NT_ELEMENT_OPEN'.
         APPEND INITIAL LINE TO lt_xml_response ASSIGNING FIELD-SYMBOL(<ls_response_line>).
         DATA(lv_index) = sy-tabix + 1.
         LOOP AT lt_xml INTO DATA(ls_xml_line2) FROM lv_index.
-          IF ( ls_xml_line2-name = 'bayiReferans' AND ls_xml_line2-node_type = 'CO_NT_ELEMENT_CLOSE' ).
+          IF ( ls_xml_line2-name = 'faturaSorgulaHYTKResult' AND ls_xml_line2-node_type = 'CO_NT_ELEMENT_CLOSE' ).
             EXIT.
           ENDIF.
           CHECK ls_xml_line2-node_type = 'CO_NT_VALUE'.
