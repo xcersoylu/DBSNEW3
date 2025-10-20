@@ -12,8 +12,10 @@
     <je>-fiscalyear         = ms_request-fiscalyear.
     <je>-companycode        = ms_request-companycode.
     <je>-%param = VALUE #( _aparitems = VALUE #(  (  glaccountlineitem = ms_request-accountingdocumentitem
+                                                     paymentterms = 'N000'
                                                      duecalculationbasedate = ms_request-duecalculationbasedate
                                                      %control-glaccountlineitem = if_abap_behv=>mk-on
+                                                     %control-paymentterms = if_abap_behv=>mk-on
                                                      %control-duecalculationbasedate = if_abap_behv=>mk-on ) ) ).
 
     MODIFY ENTITIES OF i_journalentrytp
