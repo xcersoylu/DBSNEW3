@@ -7,7 +7,7 @@
               sonodemetarihi          TYPE string,
               faturatutari            TYPE string,
               faturadovizkodu         TYPE string,
-              tahsilattarihi          type string,
+              tahsilattarihi          TYPE string,
               tahsilattutari          TYPE string,
               tahsilatdovizkodu       TYPE string,
               hesabakonanbloketutari  TYPE string,
@@ -21,6 +21,7 @@
     DATA lv_month        TYPE c LENGTH 2.
     DATA lv_year         TYPE c LENGTH 4.
     DATA lv_payment_date TYPE d.
+    DATA lv_sifir type string vALUE '0.00'.
     DATA(lt_xml) = ycl_dbs_common=>parse_xml( EXPORTING iv_xml_string  = iv_response ).
 
     LOOP AT lt_xml INTO DATA(ls_xml_line) WHERE name = 'FaturaSorguCevap'
@@ -42,12 +43,14 @@
     READ TABLE lt_xml_response INTO DATA(ls_xml_response) WITH KEY faturano = ms_invoice_data-invoicenumber
                                                                    kayitdurumu = 'A'.
     IF ls_xml_response-cevapkodu = '0'. "başarılı
-      es_collect_detail = VALUE #( payment_amount = ls_xml_response-faturatutari
-                                   payment_date = ls_xml_response-tahsilattarihi+6(4) && ls_xml_response-tahsilattarihi+2(2) && ls_xml_response-tahsilattarihi(2)
-                                   payment_currency = COND #(  WHEN ls_xml_response-faturadovizkodu = '1' THEN 'USD'
-                                                               WHEN ls_xml_response-faturadovizkodu = '2' THEN 'EUR'
-                                                               WHEN ls_xml_response-faturadovizkodu = '88' THEN 'TRY'
-                                                               ) ).
+      IF ls_xml_response-tahsilattutari > lv_sifir.
+        es_collect_detail = VALUE #( payment_amount = ls_xml_response-faturatutari
+                                     payment_date = ls_xml_response-tahsilattarihi+6(4) && ls_xml_response-tahsilattarihi+2(2) && ls_xml_response-tahsilattarihi(2)
+                                     payment_currency = COND #(  WHEN ls_xml_response-faturadovizkodu = '1' THEN 'USD'
+                                                                 WHEN ls_xml_response-faturadovizkodu = '2' THEN 'EUR'
+                                                                 WHEN ls_xml_response-faturadovizkodu = '88' THEN 'TRY'
+                                                                 ) ).
+      ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(

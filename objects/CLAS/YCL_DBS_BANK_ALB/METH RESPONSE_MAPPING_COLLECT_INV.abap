@@ -6,9 +6,11 @@
       READ TABLE lt_xml INTO DATA(ls_amount) WITH KEY node_type = mc_value_node name = 'PaymentAmount'.
       READ TABLE lt_xml INTO DATA(ls_currency) WITH KEY node_type = mc_value_node name = 'PaymentCurrencyCode'.
       READ TABLE lt_xml INTO DATA(ls_date) WITH KEY node_type = mc_value_node name = 'PaymentDate'.
-      es_collect_detail = VALUE #( payment_amount = ls_amount-value
-                                   payment_date = ls_date-value
-                                   payment_currency = ls_currency-value ).
+      IF ls_amount-value > 0.
+        es_collect_detail = VALUE #( payment_amount = ls_amount-value
+                                     payment_date = ls_date-value
+                                     payment_currency = ls_currency-value ).
+      ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(

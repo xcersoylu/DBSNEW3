@@ -5,9 +5,11 @@
     IF ls_error_code-value = '000'. "başarılı
       READ TABLE lt_xml INTO DATA(ls_amount) WITH KEY node_type = mc_value_node name = 'OdenenTutar'.
       READ TABLE lt_xml INTO DATA(ls_date) WITH KEY node_type = mc_value_node name = 'OdemeTarihi'.
-      es_collect_detail = VALUE #( payment_amount = ls_amount-value
-                                   payment_date = ls_date-value
-                                   payment_currency = ms_invoice_data-transactioncurrency ).
+      IF ls_amount-value > 0.
+        es_collect_detail = VALUE #( payment_amount = ls_amount-value
+                                     payment_date = ls_date-value
+                                     payment_currency = ms_invoice_data-transactioncurrency ).
+      ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
       adding_error_message(
