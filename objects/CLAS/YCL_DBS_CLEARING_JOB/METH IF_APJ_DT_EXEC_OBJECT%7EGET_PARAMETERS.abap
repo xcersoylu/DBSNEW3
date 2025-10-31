@@ -14,8 +14,8 @@
                                   changeable_ind = abap_true )
                                 ( selname = 'S_DUEDAT'
                                   kind = if_apj_dt_exec_object=>select_option
-                                  datatype = 'C'
-                                  length = 10
+                                  datatype = 'D'
+                                  length = 8
                                   param_text = 'Vade Tarihi'
                                   changeable_ind = abap_true )
                                   ).
