@@ -183,6 +183,14 @@
                AND accountingdocument      = @ls_invoice-accountingdocument
                AND fiscalyear              = @ls_invoice-fiscalyear
                AND accountingdocumentitem  = @ls_invoice-accountingdocumentitem.
+            lo_message = cl_bali_message_setter=>create( severity = if_bali_constants=>c_severity_information
+                                                               id = 'YDBS_MC'
+                                                               number = 005
+                                                               variable_1 = CONV #( lv_collect_doc ) ).
+            TRY.
+                lo_log->add_item( lo_message ).
+              CATCH cx_bali_runtime.
+            ENDTRY.
           ENDIF.
           FREE: lo_bank , lo_fi_doc.
           CLEAR: lo_bank , lo_fi_doc , lv_collect_doc , lv_collect_year , lt_collect_messages , lt_messages .
@@ -205,5 +213,10 @@
         CATCH cx_bali_runtime.
       ENDTRY.
     ENDIF.
-
+    IF lo_log IS NOT INITIAL.
+      TRY.
+          cl_bali_log_db=>get_instance( )->save_log( log = lo_log assign_to_current_appl_job = abap_true ).
+        CATCH cx_bali_runtime.
+      ENDTRY.
+    ENDIF.
   ENDMETHOD.

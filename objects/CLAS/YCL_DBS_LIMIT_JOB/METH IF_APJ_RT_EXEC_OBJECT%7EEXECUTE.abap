@@ -88,5 +88,10 @@
         CATCH cx_bali_runtime.
       ENDTRY.
     ENDIF.
-
+    IF lo_log IS NOT INITIAL.
+      TRY.
+          cl_bali_log_db=>get_instance( )->save_log( log = lo_log assign_to_current_appl_job = abap_true ).
+        CATCH cx_bali_runtime.
+      ENDTRY.
+    ENDIF.
   ENDMETHOD.
