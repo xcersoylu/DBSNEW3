@@ -52,6 +52,11 @@
           ENDIF.
       ENDCASE.
     ENDLOOP.
+    TRY.
+        DATA(lo_log) = cl_bali_log=>create_with_header( cl_bali_header_setter=>create( object = 'YDBS_APP_LOG'
+                                                                                       subobject = 'YDBS_CLEARING_LOG' ) ).
+      CATCH cx_bali_runtime.
+    ENDTRY.
 *bankaya yüklenmiş ya da güncellenmiş faturalar tahsil edilmiş olabilir o yüzden o statü deki faturalar okunuyor
     SELECT *
       FROM ydbs_t_log
@@ -115,13 +120,6 @@
         SORT lt_send_documents BY companycode accountingdocument fiscalyear accountingdocumentitem bankinternalid.
         DELETE ADJACENT DUPLICATES FROM lt_send_documents COMPARING companycode accountingdocument fiscalyear accountingdocumentitem bankinternalid.
         SELECT * FROM ydbs_t_bnk_dtype INTO TABLE @DATA(lt_bank_doctype).
-
-        TRY.
-            DATA(lo_log) = cl_bali_log=>create_with_header( cl_bali_header_setter=>create( object = 'YDBS_APP_LOG'
-                                                                                           subobject = 'YDBS_CLEARING_LOG' ) ).
-          CATCH cx_bali_runtime.
-        ENDTRY.
-
 
         LOOP AT lt_send_documents INTO DATA(ls_invoice).
 
