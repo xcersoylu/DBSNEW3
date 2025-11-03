@@ -4,18 +4,18 @@
   "data":
   [
    {
-    "APP_ID":"YDBS_INVCOCKPIT_UI5R",
+    "APP_ID":"YDBS_LOG_UPDATE_UI5R",
     "CAT_ID":"SAP_TC_UI5_REPO_UIAD",
-    "SEM_OBJ":"YDBS_INVCOCKPIT",
-    "SEM_ACT":"manage",
-    "TARGET_MAPPING_ID":"UI5R_AD87DC55E8A3EE6B25AD1A59C1659F3AC7B1064A_TM",
-    "TILE_ID":"UI5R_AD87DC55E8A3EE6B25AD1A59C1659F3AC7B1064A_AL",
+    "SEM_OBJ":"ydbs_log_update",
+    "SEM_ACT":"display",
+    "TARGET_MAPPING_ID":"UI5R_BA096656459381D5863B12D1BE42B6B2FD6E3548_TM",
+    "TILE_ID":"UI5R_BA096656459381D5863B12D1BE42B6B2FD6E3548_AL",
     "APP_TYPE":"U",
     "TCODE":"",
     "WD_APPL_ID":"",
     "WD_CONF_ID":"",
     "WCF_TARGET_ID":"",
-    "UI5_APP_ID":"ndbs.ydbs.invoicecockpit",
+    "UI5_APP_ID":"ydbslogupdate",
     "FIORI_ID":"",
     "ICF_PATH":"",
     "SYSTEM_ALIAS":"",
@@ -33,7 +33,7 @@
     "REFRESH_INTERVALL":0,
     "DISPLAY_NUMBER_UNIT":"",
     "FLAVOR_ID":"",
-    "CHANGED_AT":"+020251024144625",
+    "CHANGED_AT":"+020251031114847",
     "CHANGED_BY":"SAP_CUSTOMER",
     "MASTERLANG":"",
     "ACH_COMPONENT":"",
@@ -56,12 +56,12 @@
   "data":
   [
    {
-    "APP_ID":"YDBS_INVCOCKPIT_UI5R",
-    "TILE_ID":"UI5R_AD87DC55E8A3EE6B25AD1A59C1659F3AC7B1064A_AL",
+    "APP_ID":"YDBS_LOG_UPDATE_UI5R",
+    "TILE_ID":"UI5R_BA096656459381D5863B12D1BE42B6B2FD6E3548_AL",
     "TILE_TYPE":"S",
     "CUSTOM_TILE_TYPE":"",
     "DEFAULT_TILE":"X",
-    "TILE_CONFIG_STRING":"{\"tileConfiguration\":\"{\\\"display_icon_url\\\":\\\"\\\",\\\"display_info_text\\\":\\\"\\\",\\\"display_title_text\\\":\\\"DBS Fatura Kokpiti\\\",\\\"display_subtitle_text\\\":\\\"\\\",\\\"navigation_use_semantic_object\\\":true,\\\"navigation_target_url\\\":\\\"#YDBS_INVCOCKPIT-manage\\\",\\\"navigation_semantic_object\\\":\\\"YDBS_INVCOCKPIT\\\",\\\"navigation_semantic_action\\\":\\\"manage\\\",\\\"navigation_semantic_parameters\\\":\\\"\\\",\\\"display_search_keywords\\\":\\\"\\\",\\\"display_number_unit\\\":\\\"\\\",\\\"service_url\\\":\\\"\\\",\\\"service_refresh_interval\\\":0}\"}",
+    "TILE_CONFIG_STRING":"{\"tileConfiguration\":\"{\\\"display_icon_url\\\":\\\"\\\",\\\"display_info_text\\\":\\\"\\\",\\\"display_title_text\\\":\\\"Log Güncelleme\\\",\\\"display_subtitle_text\\\":\\\"\\\",\\\"navigation_use_semantic_object\\\":true,\\\"navigation_target_url\\\":\\\"#ydbs_log_update-display\\\",\\\"navigation_semantic_object\\\":\\\"ydbs_log_update\\\",\\\"navigation_semantic_action\\\":\\\"display\\\",\\\"navigation_semantic_parameters\\\":\\\"\\\",\\\"display_search_keywords\\\":\\\"\\\",\\\"display_number_unit\\\":\\\"\\\",\\\"service_url\\\":\\\"\\\",\\\"service_refresh_interval\\\":0}\"}",
     "TILE_ICON":"",
     "TILE_PARAMETERS":"",
     "SERVICE_BASE_URL":"",
@@ -79,9 +79,9 @@
   [
    {
     "LANGU":"E",
-    "APP_ID":"YDBS_INVCOCKPIT_UI5R",
-    "TILE_ID":"UI5R_AD87DC55E8A3EE6B25AD1A59C1659F3AC7B1064A_AL",
-    "TILE_TITLE":"DBS Fatura Kokpiti",
+    "APP_ID":"YDBS_LOG_UPDATE_UI5R",
+    "TILE_ID":"UI5R_BA096656459381D5863B12D1BE42B6B2FD6E3548_AL",
+    "TILE_TITLE":"Log Güncelleme",
     "TILE_SUBTITLE":"",
     "TILE_KEYWORDS":"",
     "TILE_INFORMATION":""
@@ -93,14 +93,14 @@
   "data":
   [
    {
-    "APP_ID":"YDBS_INVCOCKPIT_UI5R",
+    "APP_ID":"YDBS_LOG_UPDATE_UI5R",
     "LANGU":"E",
-    "TILE_TITLE":"DBS Fatura Kokpiti",
+    "TILE_TITLE":"Log Güncelleme",
     "TILE_SUBTITLE":"",
     "TILE_KEYWORDS":"",
     "TILE_INFORMATION":"",
-    "ALT_SMART_LINK_TITLE":"DBS Fatura Kokpiti",
-    "DESCRIPTION":"DBS Fatura Listele"
+    "ALT_SMART_LINK_TITLE":"Log Güncelleme",
+    "DESCRIPTION":"An SAP Fiori application."
    }
   ]
  },
@@ -111,7 +111,7 @@
    {
     "PGMID":"R3TR",
     "OBJECT":"UIAD",
-    "OBJ_NAME":"YDBS_INVCOCKPIT_UI5R",
+    "OBJ_NAME":"YDBS_LOG_UPDATE_UI5R",
     "KORRNUM":"",
     "SRCSYSTEM":"...",
     "AUTHOR":"SAP_CUSTOMER",
@@ -128,8 +128,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2025-10-24",
-    "CHECK_DATE":"2025-10-24",
+    "CREATED_ON":"2025-10-31",
+    "CHECK_DATE":"2025-10-31",
     "CHECK_CFG":""
    }
   ]

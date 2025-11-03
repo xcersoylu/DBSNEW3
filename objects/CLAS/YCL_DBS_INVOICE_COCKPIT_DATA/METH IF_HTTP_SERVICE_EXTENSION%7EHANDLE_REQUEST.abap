@@ -14,7 +14,7 @@
       WHERE companycode IN @ms_request-companycode
         AND bankinternalid IN @ms_request-bankinternalid
         AND customer IN @ms_request-customer
-        and only_limit = ''
+        AND only_limit = ''
         INTO TABLE @DATA(lt_subsmap).
     DATA(lt_priority) = lt_subsmap.
     DELETE lt_priority WHERE priority IS INITIAL.
@@ -62,6 +62,9 @@
       WHERE bsid~accountingdocument IN @ms_request-accountingdocument
         AND bsid~documentdate IN @ms_request-documentdate
         AND bsid~debitcreditcode = 'S'
+    AND dats_add_days( bsid~duecalculationbasedate ,
+                       CAST( CAST( bsid~cashdiscount1days AS CHAR( 5 ) ) AS INT4 ) )
+        IN @ms_request-invoiceduedate
         AND EXISTS ( SELECT * FROM ydbs_t_doctype WHERE companycode = bsid~companycode AND document_type = bsid~accountingdocumenttype )
         AND NOT EXISTS ( SELECT * FROM ydbs_t_log WHERE companycode = bsid~companycode
                                                     AND accountingdocument = bsid~accountingdocument
@@ -184,6 +187,9 @@
                                                                     AND subscriber~customer = customer~customer
               WHERE bseg~customer IN @ms_request-customer
                 AND bseg~documentdate IN @ms_request-documentdate
+    AND dats_add_days( bseg~duecalculationbasedate ,
+                       CAST( CAST( bseg~cashdiscount1days AS CHAR( 5 ) ) AS INT4 ) )
+        IN @ms_request-invoiceduedate
               INTO CORRESPONDING FIELDS OF TABLE @lt_send_documents.
       IF sy-subrc = 0.
 *denkleştirme belgesi yazılamayan satırlar varsa onlar bulunuyor.
