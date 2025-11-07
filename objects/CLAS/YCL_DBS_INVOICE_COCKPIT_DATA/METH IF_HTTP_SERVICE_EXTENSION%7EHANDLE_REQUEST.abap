@@ -1,4 +1,5 @@
   METHOD if_http_service_extension~handle_request.
+    DATA lv_count TYPE i.
     DATA(lv_request_body) = request->get_text( ).
     DATA(lv_get_method) = request->get_method( ).
     DATA lt_send_documents TYPE ydbs_tt_invoice_cockpit_data.
@@ -9,7 +10,7 @@
        WHERE language = @sy-langu
      ORDER BY value
     INTO TABLE @DATA(lt_invoicestatus).
-
+*abone tablosunda öncelik tıkı işaretlenenler gelsin. eğer tek kayıt varsa o kayıt gelir önceliğe bakılmaksızın.
     SELECT * FROM ydbs_t_subsmap
       WHERE companycode IN @ms_request-companycode
         AND bankinternalid IN @ms_request-bankinternalid
@@ -17,14 +18,21 @@
         AND only_limit = ''
         INTO TABLE @DATA(lt_subsmap).
     DATA(lt_priority) = lt_subsmap.
-    DELETE lt_priority WHERE priority IS INITIAL.
-    IF lt_priority IS NOT INITIAL.
-      LOOP AT lt_priority INTO DATA(ls_priority).
-        DELETE lt_subsmap WHERE companycode = ls_priority-companycode
-                            AND bankinternalid <> ls_priority-bankinternalid
-                            AND customer = ls_priority-customer.
+    CLEAR lt_subsmap.
+    LOOP AT lt_priority INTO DATA(ls_priority) GROUP BY ( companycode = ls_priority-companycode
+                                                          customer = ls_priority-customer ).
+      CLEAR lv_count.
+      LOOP AT GROUP ls_priority INTO DATA(ls_member).
+        lv_count += 1.
       ENDLOOP.
-    ENDIF.
+      IF lv_count = 1.
+        APPEND ls_member TO lt_subsmap.
+      ELSE.
+        LOOP AT GROUP ls_priority INTO ls_member WHERE priority = 'X'.
+          APPEND ls_member TO lt_subsmap.
+        ENDLOOP.
+      ENDIF.
+    ENDLOOP.
 *gönderilmemişler
     SELECT bsid~companycode,
            bsid~accountingdocument,
