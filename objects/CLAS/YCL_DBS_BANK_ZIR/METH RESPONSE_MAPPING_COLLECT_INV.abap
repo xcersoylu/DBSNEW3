@@ -21,7 +21,7 @@
     DATA lv_month        TYPE c LENGTH 2.
     DATA lv_year         TYPE c LENGTH 4.
     DATA lv_payment_date TYPE d.
-    DATA lv_sifir type string vALUE '0.00'.
+    DATA lv_sifir TYPE string VALUE '0.00'.
     DATA(lt_xml) = ycl_dbs_common=>parse_xml( EXPORTING iv_xml_string  = iv_response ).
 
     LOOP AT lt_xml INTO DATA(ls_xml_line) WHERE name = 'FaturaSorguCevap'
@@ -50,6 +50,8 @@
                                                                  WHEN ls_xml_response-faturadovizkodu = '2' THEN 'EUR'
                                                                  WHEN ls_xml_response-faturadovizkodu = '88' THEN 'TRY'
                                                                  ) ).
+      ELSE.
+        APPEND VALUE #( id = mc_id type = mc_error number = 025 ) TO rt_messages.
       ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.

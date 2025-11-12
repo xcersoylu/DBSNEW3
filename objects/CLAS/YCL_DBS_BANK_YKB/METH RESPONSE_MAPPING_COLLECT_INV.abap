@@ -57,6 +57,9 @@
                       ls_xml_response-odmtarih+5(2)
                       ls_xml_response-odmtarih+8(2) INTO es_collect_detail-payment_date.
         ENDIF.
+        IF es_collect_detail-payment_amount <= 0.
+          APPEND VALUE #( id = mc_id type = mc_error number = 025 ) TO rt_messages.
+        ENDIF.
       ELSE.
         APPEND VALUE #( id = mc_id type = mc_error number = 024 ) TO rt_messages.
       ENDIF.

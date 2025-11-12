@@ -9,6 +9,8 @@
         es_collect_detail = VALUE #( payment_amount = ls_amount-value
                                      payment_date = ls_date-value
                                      payment_currency = ms_invoice_data-transactioncurrency ).
+      ELSE.
+        APPEND VALUE #( id = mc_id type = mc_error number = 025 ) TO rt_messages.
       ENDIF.
     ELSE.
       APPEND VALUE #( id = mc_id type = mc_error number = 014 ) TO rt_messages.
