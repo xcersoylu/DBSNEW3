@@ -37,6 +37,9 @@
               TRANSLATE ls_xml_line2-name TO UPPER CASE.
               ASSIGN COMPONENT ls_xml_line2-name OF STRUCTURE <ls_response_line> TO FIELD-SYMBOL(<lv_value>).
               CHECK sy-subrc = 0.
+              IF ls_xml_line2-name = 'FATURANO'.
+                cl_abap_string_utilities=>del_trailing_blanks( CHANGING str = ls_xml_line2-value ).
+              ENDIF.
               <lv_value> = ls_xml_line2-value.
           ENDCASE.
         ENDLOOP.
