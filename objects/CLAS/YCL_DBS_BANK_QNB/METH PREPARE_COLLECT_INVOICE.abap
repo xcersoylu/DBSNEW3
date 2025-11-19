@@ -13,7 +13,7 @@
               '<!--Optional:-->'
               '<bayiReferans>' ms_subscribe-subscriber_number '</bayiReferans>'
               '<!--Optional:-->'
-              '<bitisVadeTarihi>' ms_invoice_data-invoiceduedate '</bitisVadeTarihi>'
+              '<bitisVadeTarihi>' ms_invoice_data-querydate '</bitisVadeTarihi>'
               '<!--Optional:-->'
               '<faturaNo>' ms_invoice_data-invoicenumber '</faturaNo>'
               '<!--Optional:-->'

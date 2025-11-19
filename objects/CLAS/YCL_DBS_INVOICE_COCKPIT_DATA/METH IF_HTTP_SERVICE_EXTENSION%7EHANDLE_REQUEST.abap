@@ -98,6 +98,7 @@
       ORDER BY log~companycode,log~accountingdocument,log~fiscalyear,log~accountingdocumentitem
       INTO TABLE @DATA(lt_log).
       LOOP AT ms_response-data ASSIGNING FIELD-SYMBOL(<fs_data>).
+        <fs_Data>-querydate = <fs_Data>-invoiceduedate.
         READ TABLE lt_limit INTO DATA(ls_limit) WITH KEY companycode = <fs_data>-companycode
                                                          bankinternalid = <fs_data>-bankinternalid
                                                          customer = <fs_data>-customer
@@ -232,6 +233,7 @@
         INTO TABLE @DATA(lt_send_limit).
 
         LOOP AT lt_send_documents ASSIGNING FIELD-SYMBOL(<ls_send_data>).
+         <ls_send_Data>-querydate = <ls_send_data>-invoiceduedate.
           READ TABLE lt_limit INTO DATA(ls_send_limit) WITH KEY companycode = <ls_send_data>-companycode
                                                              bankinternalid = <ls_send_data>-bankinternalid
                                                                    customer = <ls_send_data>-customer

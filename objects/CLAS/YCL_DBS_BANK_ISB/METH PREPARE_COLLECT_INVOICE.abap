@@ -2,9 +2,12 @@
     DATA : lv_bdate TYPE c LENGTH 10.
     DATA : lv_edate TYPE c LENGTH 10.
 
-    CONCATENATE ms_invoice_data-invoiceduedate(4) '-'
-                ms_invoice_data-invoiceduedate+4(2) '-'
-                ms_invoice_data-invoiceduedate+6(2)
+*    CONCATENATE ms_invoice_data-invoiceduedate(4) '-'
+*                ms_invoice_data-invoiceduedate+4(2) '-'
+*                ms_invoice_data-invoiceduedate+6(2)
+    CONCATENATE ms_invoice_data-querydate(4) '-'
+                ms_invoice_data-querydate+4(2) '-'
+                ms_invoice_data-querydate+6(2)
     INTO lv_bdate.
     lv_edate = lv_bdate.
 

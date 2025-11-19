@@ -11,9 +11,12 @@
       lv_waers = ms_invoice_data-transactioncurrency.
     ENDIF.
 
-    CONCATENATE ms_invoice_data-invoiceduedate+6(2) '/'
-                ms_invoice_data-invoiceduedate+4(2) '/'
-                ms_invoice_data-invoiceduedate(4)
+*    CONCATENATE ms_invoice_data-invoiceduedate+6(2) '/'
+*                ms_invoice_data-invoiceduedate+4(2) '/'
+*                ms_invoice_data-invoiceduedate(4)
+    CONCATENATE ms_invoice_data-querydate+6(2) '/'
+                ms_invoice_data-querydate+4(2) '/'
+                ms_invoice_data-querydate(4)
            INTO lv_vade.
 
     CONCATENATE

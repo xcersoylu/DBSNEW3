@@ -1,9 +1,12 @@
   METHOD prepare_collect_invoice.
     DATA lv_startdate TYPE c LENGTH 10.
     DATA lv_enddate TYPE c LENGTH 10.
-    CONCATENATE ms_invoice_data-invoiceduedate+6(2) '/'
-                ms_invoice_data-invoiceduedate+4(2) '/'
-                ms_invoice_data-invoiceduedate(4)
+*    CONCATENATE ms_invoice_data-invoiceduedate+6(2) '/'
+*                ms_invoice_data-invoiceduedate+4(2) '/'
+*                ms_invoice_data-invoiceduedate(4)
+    CONCATENATE ms_invoice_data-querydate+6(2) '/'
+                ms_invoice_data-querydate+4(2) '/'
+                ms_invoice_data-querydate(4)
     INTO lv_startdate.
     lv_enddate = lv_startdate.
     CONCATENATE

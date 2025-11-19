@@ -54,8 +54,12 @@
                                   createdbyuser                = sy-uname
                                   businesstransactiontype      = 'RFBU'
                                   accountingdocumenttype       = ms_bank_doctype-collection_document_type
-                                  documentdate                 = ls_local_time_info-date
-                                  postingdate                  = ls_local_time_info-date
+                                  documentdate                 = cond #( when ms_invoice_data-invoiceduedate is iNITIAL
+                                                                         then ls_local_time_info-date
+                                                                         else ms_invoice_data-invoiceduedate )
+                                  postingdate                  = cond #( when ms_invoice_data-invoiceduedate is iNITIAL
+                                                                         then ls_local_time_info-date
+                                                                         else ms_invoice_data-invoiceduedate )
                                   accountingdocumentheadertext = ms_invoice_data-invoicenumber
                                   _glitems                     = VALUE #( FOR wa_glitem  IN lt_glitem  ( CORRESPONDING #( wa_glitem  MAPPING _currencyamount = _currencyamount ) ) )
                                 ).

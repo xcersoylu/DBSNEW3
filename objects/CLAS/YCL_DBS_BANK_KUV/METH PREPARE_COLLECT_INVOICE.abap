@@ -10,11 +10,14 @@
                   ms_invoice_data-documentdate+4(2)
                   ms_invoice_data-documentdate(4)
              INTO lv_bdate.
-      CONCATENATE ms_invoice_data-invoiceduedate+6(2)
-                  ms_invoice_data-invoiceduedate+4(2)
-                  ms_invoice_data-invoiceduedate(4)
+*      CONCATENATE ms_invoice_data-invoiceduedate+6(2)
+*                  ms_invoice_data-invoiceduedate+4(2)
+*                  ms_invoice_data-invoiceduedate(4)
+*             INTO lv_edate.
+      CONCATENATE ms_invoice_data-querydate+6(2)
+                  ms_invoice_data-querydate+4(2)
+                  ms_invoice_data-querydate(4)
              INTO lv_edate.
-
       CONCATENATE
       '{'
          '"PurchaserCode": "' ms_subscribe-subscriber_number '",'
