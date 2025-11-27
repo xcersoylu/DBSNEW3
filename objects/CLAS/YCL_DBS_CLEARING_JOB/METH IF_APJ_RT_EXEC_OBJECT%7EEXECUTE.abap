@@ -85,6 +85,7 @@
              bseg~duecalculationbasedate,
              bseg~cashdiscount1days,
              send~invoiceduedate,
+             send~invoiceduedate as querydate,
              bseg~absoluteamountintransaccrcy,
              bseg~transactioncurrency,
              send~invoiceamount,
