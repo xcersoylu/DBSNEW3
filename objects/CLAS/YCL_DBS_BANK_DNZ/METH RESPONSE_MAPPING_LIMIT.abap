@@ -90,7 +90,7 @@
                             limit_date      = ls_time_info-date
                             limit_time      = ls_time_info-time
                             total_limit     = ls_result-ddalimit
-                            available_limit = ls_Result-ddalimit - ls_result-futureinvoiceamount "ls_result-availablelimit
+                            available_limit = ls_Result-availablelimit - ls_result-futureinvoiceamount "ls_result-availablelimit
                             risk            = ls_result-ddarisk ).
         MODIFY ydbs_t_limit FROM @ls_limit.
       APPEND VALUE #( id = mc_id type = mc_success number = 021 message_v1 = ms_subscribe-customer
