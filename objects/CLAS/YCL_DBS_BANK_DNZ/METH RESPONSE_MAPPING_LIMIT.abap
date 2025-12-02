@@ -90,11 +90,11 @@
                             limit_date      = ls_time_info-date
                             limit_time      = ls_time_info-time
                             total_limit     = ls_result-ddalimit
-                            available_limit = ls_Result-availablelimit - ls_result-futureinvoiceamount "ls_result-availablelimit
+                            available_limit = ls_result-availablelimit - ls_result-futureinvoiceamount "ls_result-availablelimit
                             risk            = ls_result-ddarisk ).
         MODIFY ydbs_t_limit FROM @ls_limit.
-      APPEND VALUE #( id = mc_id type = mc_success number = 021 message_v1 = ms_subscribe-customer
-                                                                message_v2 = ms_service_info-companycode  ) TO rt_messages.
+        APPEND VALUE #( id = mc_id type = mc_success number = 021 message_v1 = ms_subscribe-customer
+                                                                  message_v2 = ms_service_info-companycode  ) TO rt_messages.
       ENDIF.
     ELSE.
       LOOP AT ls_json-data-dbslimitresult INTO ls_result WHERE resultcode IS NOT INITIAL AND resultcode <> '300'.
