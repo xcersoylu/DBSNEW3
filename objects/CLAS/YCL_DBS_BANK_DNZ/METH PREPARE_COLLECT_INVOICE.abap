@@ -19,7 +19,7 @@
                 '"AssociationCode": "' ms_service_info-additional_field1 '",'
                 '"QueryDate": "' lv_querydate '",'
                 '"EndDate": "' lv_querydate '",'
-                '"CustomerNo": "' ms_invoice_data-customer '"'
+                '"CustomerNo": "' ms_service_info-additional_field2 '"'
             '}'
         ']'
     '}'

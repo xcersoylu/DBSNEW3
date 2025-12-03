@@ -50,7 +50,7 @@
                 '"SubscriberSurname": "' '",'
                 '"PeriodCode": "' lv_period '",'
                 '"InvoiceIncludedBlockage": " ",'
-                '"CustomerNo": "' ms_invoice_data-customer '"'
+                '"CustomerNo": "' ms_service_info-additional_field2 '"'
             '}'
         ']'
     '}'
