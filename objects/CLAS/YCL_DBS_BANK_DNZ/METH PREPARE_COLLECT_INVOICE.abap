@@ -9,7 +9,7 @@
     CONCATENATE
     '{'
         '"Header": {'
-            '"AppKey": "' ms_service_info-additional_field3 '"'
+            '"AppKey": "' ms_service_info-additional_field3 '",'
             '"Channel": "' ms_service_info-additional_field4 '",'
             '"ChannelSessionId": "' mv_session_id '",'
             '"ChannelRequestId": "' mv_request_id '"'
