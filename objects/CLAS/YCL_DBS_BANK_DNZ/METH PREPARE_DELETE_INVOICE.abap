@@ -22,6 +22,7 @@
     CONDENSE lv_amount.
     mv_session_id = get_session_id(  ).
     mv_request_id = get_request_id(  ).
+    mv_url = ms_service_info-cpi_url2.
     CONCATENATE
     '{'
         '"Header": {'
