@@ -21,7 +21,7 @@
                 '"AssociationCode": "' ms_service_info-additional_field1 '",'
                 '"SubscriberNumber": "' ms_subscribe-subscriber_number '",'
                 '"InvoicesIncluded": "' lv_date '",'
-                '"CustomerNo": ' ms_service_info-additional_field2 ''
+                '"CustomerNo": "' ms_service_info-additional_field2 '"'
             '}'
         ']'
     '}'

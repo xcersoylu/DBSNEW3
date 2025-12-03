@@ -1,5 +1,5 @@
   METHOD prepare_collect_invoice.
-    DATA lv_querydate TYPE c LENGTH 15.
+    DATA lv_querydate TYPE string.
     CONCATENATE ms_invoice_data-querydate+0(4) '-'
                 ms_invoice_data-querydate+4(2) '-'
                 ms_invoice_data-querydate+6(2) 'T00:00:00'
@@ -19,7 +19,7 @@
                 '"AssociationCode": "' ms_service_info-additional_field1 '",'
                 '"QueryDate": "' lv_querydate '",'
                 '"EndDate": "' lv_querydate '",'
-                '"CustomerNo": ' ms_invoice_data-customer ''
+                '"CustomerNo": "' ms_invoice_data-customer '"'
             '}'
         ']'
     '}'

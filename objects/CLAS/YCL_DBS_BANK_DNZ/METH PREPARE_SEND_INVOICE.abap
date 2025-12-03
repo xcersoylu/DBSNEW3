@@ -1,6 +1,6 @@
   METHOD prepare_send_invoice.
-    DATA: lv_bldat    TYPE c LENGTH 15.
-    DATA: lv_duedate  TYPE c LENGTH 15.
+    DATA: lv_bldat    TYPE string.
+    DATA: lv_duedate  TYPE string.
     DATA: lv_amount   TYPE string.
     DATA: lv_period   TYPE c LENGTH 6.
 
@@ -50,7 +50,7 @@
                 '"SubscriberSurname": "' '",'
                 '"PeriodCode": "' lv_period '",'
                 '"InvoiceIncludedBlockage": " ",'
-                '"CustomerNo": ' ms_invoice_data-customer ''
+                '"CustomerNo": "' ms_invoice_data-customer '"'
             '}'
         ']'
     '}'
