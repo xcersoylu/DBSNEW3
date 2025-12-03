@@ -20,11 +20,12 @@
 
     lv_amount = ms_invoice_data-invoiceamount.
     CONDENSE lv_amount.
-
+    mv_session_id = get_session_id(  ).
+    mv_request_id = get_request_id(  ).
     CONCATENATE
     '{'
         '"Header": {'
-            '"AppKey": “' ms_service_info-additional_field3 '”'
+            '"AppKey": "' ms_service_info-additional_field3 '"'
             '"Channel": "' ms_service_info-additional_field4 '",'
             '"ChannelSessionId": "' mv_session_id '",'
             '"ChannelRequestId": "' mv_request_id '"'
