@@ -3,11 +3,11 @@
     DATA lv_enddate type string.
     CONCATENATE ms_invoice_data-querydate+0(4) '-'
                 ms_invoice_data-querydate+4(2) '-'
-                ms_invoice_data-querydate+6(2) 'T00:00:00'
+                ms_invoice_data-querydate+6(2)
        INTO lv_querydate.
     CONCATENATE ms_invoice_data-querydate+0(4) '-'
                 ms_invoice_data-querydate+4(2) '-'
-                ms_invoice_data-querydate+6(2) 'T23:59:59'
+                ms_invoice_data-querydate+6(2)
        INTO lv_enddate.
     mv_session_id = get_session_id(  ).
     mv_request_id = get_request_id(  ).
