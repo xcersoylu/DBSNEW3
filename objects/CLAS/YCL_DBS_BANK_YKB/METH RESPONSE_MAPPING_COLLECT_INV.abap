@@ -51,9 +51,10 @@
         IF ls_xml_response-odntutarytl IS NOT INITIAL AND ls_xml_response-odntutarytl GT 0.
           es_collect_detail-payment_amount = ls_xml_response-odntutarytl.
           es_collect_detail-payment_currency = 'TRY'.
-        ELSE.
-          es_collect_detail-payment_amount = ls_xml_response-fattutar.
-          es_collect_detail-payment_currency = ls_xml_response-doviz.
+*tahsil edilen faturalarda sadece odntuttarytl alanı dolduğu için bu kısım yıldızlandı.
+*        ELSE.
+*          es_collect_detail-payment_amount = ls_xml_response-fattutar.
+*          es_collect_detail-payment_currency = ls_xml_response-doviz.
         ENDIF.
         IF ls_xml_response-odmtarih IS NOT INITIAL.
           CONCATENATE ls_xml_response-odmtarih(4)
