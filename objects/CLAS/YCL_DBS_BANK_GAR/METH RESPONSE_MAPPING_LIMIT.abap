@@ -3,7 +3,7 @@
     DATA(ls_time_info) = ycl_dbs_common=>get_local_time(  ).
     DATA(lt_xml) = ycl_dbs_common=>parse_xml( EXPORTING iv_xml_string  = iv_response ).
     READ TABLE lt_xml INTO DATA(ls_bankstatus) WITH KEY node_type = mc_value_node name = 'StatusCode'.
-    IF ls_bankstatus-value = '0000' or
+    IF ls_bankstatus-value = '0000' OR
        ls_bankstatus-value = '0803'. " 0803 bayi iptal edildi demekmiş bu durumda da limit alınsın istendi. bankadan 0 geliyor ve limit 0 lanıyor.
       ls_limit = VALUE #( companycode    = ms_service_info-companycode
                           bankinternalid = ms_service_info-bankinternalid
