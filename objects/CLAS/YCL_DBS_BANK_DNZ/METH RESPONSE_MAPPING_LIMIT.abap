@@ -95,6 +95,14 @@
         MODIFY ydbs_t_limit FROM @ls_limit.
         APPEND VALUE #( id = mc_id type = mc_success number = 021 message_v1 = ms_subscribe-customer
                                                                   message_v2 = ms_service_info-companycode  ) TO rt_messages.
+*limit tarihçeli tutulsun denmişti sonradan son 2 güne düşürdük.
+        DATA lv_yesterday TYPE d.
+        lv_yesterday = ls_time_info-date - 1.
+        DELETE FROM ydbs_t_limit WHERE companycode    = @ms_service_info-companycode
+                                   AND bankinternalid = @ms_service_info-bankinternalid
+                                   AND customer       = @ms_subscribe-customer
+                                   AND currency       = @ms_service_info-currency
+                                   AND limit_date     < @lv_yesterday.
       ENDIF.
     ELSE.
       LOOP AT ls_json-data-dbslimitresult INTO ls_result WHERE resultcode IS NOT INITIAL AND resultcode <> '300'.

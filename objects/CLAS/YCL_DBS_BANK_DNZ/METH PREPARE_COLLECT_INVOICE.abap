@@ -1,6 +1,6 @@
   METHOD prepare_collect_invoice.
     DATA lv_querydate TYPE string.
-    DATA lv_enddate type string.
+    DATA lv_enddate TYPE string.
     CONCATENATE ms_invoice_data-querydate+0(4) '-'
                 ms_invoice_data-querydate+4(2) '-'
                 ms_invoice_data-querydate+6(2)
