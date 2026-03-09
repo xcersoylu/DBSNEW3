@@ -33,6 +33,22 @@
   ]
  },
  {
+  "table":"OBJM",
+  "data":
+  [
+   {
+    "OBJECTNAME":"AIFD",
+    "OBJECTTYPE":"L",
+    "METHOD":"AFTER_IMP",
+    "METHODNAME":"/AIF/AIM_AIFD_CONTENT_EXTRACT",
+    "UPGRADE":"X",
+    "MULTI_OBJ":"",
+    "LANG_OBJ":"",
+    "SHADOW_SYS":""
+   }
+  ]
+ },
+ {
   "table":"OBJS",
   "data":
   [
