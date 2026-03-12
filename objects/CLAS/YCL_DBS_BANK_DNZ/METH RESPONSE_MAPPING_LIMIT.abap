@@ -94,7 +94,7 @@
                             risk            = 0 ).
         MODIFY ydbs_t_limit FROM @ls_limit.
         IF ls_result-resultmessage IS NOT INITIAL.
-          adding_error_message(
+          adding_information_message(
             EXPORTING
               iv_message  = ls_result-resultmessage
             CHANGING

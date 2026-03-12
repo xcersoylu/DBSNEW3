@@ -36,7 +36,7 @@
                           total_limit     = 0
                           available_limit = 0 ).
       MODIFY ydbs_t_limit FROM @ls_limit.
-      adding_error_message(
+      adding_information_message(
         EXPORTING
           iv_message  = ls_error_text-value
         CHANGING

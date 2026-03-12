@@ -12,6 +12,7 @@
     DATA mv_http_method TYPE string.
     CONSTANTS mc_id TYPE symsgid VALUE 'YDBS_MC'.
     CONSTANTS mc_error TYPE symsgty VALUE 'E'.
+    CONSTANTS mc_information TYPE symsgty VALUE 'I'.
     CONSTANTS mc_success TYPE symsgty VALUE 'S'.
     CONSTANTS mc_send TYPE ydbs_e_invoicestatus VALUE 'S'.
     CONSTANTS mc_updated TYPE ydbs_e_invoicestatus VALUE 'U'.
@@ -19,3 +20,4 @@
     CONSTANTS mc_collected TYPE ydbs_e_invoicestatus VALUE 'C'.
     CONSTANTS mc_value_node TYPE string VALUE 'CO_NT_VALUE'.
     METHODS adding_error_message IMPORTING iv_message TYPE string CHANGING ct_messages TYPE ydbs_tt_bapiret2.
+    METHODS adding_information_message IMPORTING iv_message TYPE string CHANGING ct_messages TYPE ydbs_tt_bapiret2.

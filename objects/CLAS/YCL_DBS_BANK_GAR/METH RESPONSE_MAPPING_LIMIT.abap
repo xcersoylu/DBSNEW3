@@ -23,7 +23,7 @@
         APPEND VALUE #( id = mc_id type = mc_success number = 021 message_v1 = ms_subscribe-customer
                                                                   message_v2 = ms_service_info-companycode  ) TO rt_messages.
       ELSE.
-        adding_error_message(
+        adding_information_message(
           EXPORTING
             iv_message  = CONV #( get_error_text( CONV #( ls_bankstatus-value ) ) )
           CHANGING

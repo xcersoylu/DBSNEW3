@@ -74,7 +74,7 @@
                           maturity_invoice_count = 0
                           over_limit             = 0 ).
       MODIFY ydbs_t_limit FROM @ls_limit.
-      adding_error_message(
+      adding_information_message(
         EXPORTING
           iv_message  = ls_json-result_message
         CHANGING
