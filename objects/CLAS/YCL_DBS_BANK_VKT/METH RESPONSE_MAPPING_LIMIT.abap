@@ -27,6 +27,38 @@
                                    AND customer       = @ms_subscribe-customer
                                    AND currency       = @ms_service_info-currency
                                    AND limit_date     < @lv_yesterday.
+    ELSEIF ls_error_Code-value = '150' or "Bayi bilgisi bulunamadı.
+           ls_Error_code-value = '400' or  "Ana bayi bilgileri alınamadı.
+           ls_Error_code-value = '401' or  "Bayi bilgileri alınırken hata oluştu.
+           ls_Error_code-value = '402' or  "Bayi limit bilgileri alınırken hata oluştu.
+           ls_Error_code-value = '403' or "Bayi bilgileri alınırken hata oluştu.
+           ls_Error_code-value = '416' or  "Bayi limit bilgileri alınırken hata oluştu.
+           ls_Error_code-value = '417' .   "Limit güncelleme işleminde hata oluştu
+      ls_limit = VALUE #( companycode    = ms_service_info-companycode
+                          bankinternalid = ms_service_info-bankinternalid
+                          customer       = ms_subscribe-customer
+                          currency       = ms_service_info-currency
+                          limit_timestamp = ls_time_info-timestamp
+                          limit_date      = ls_time_info-date
+                          limit_time      = ls_time_info-time
+                          total_limit     = 0
+                          available_limit = 0
+                          risk            = 0
+                          maturity_amount = 0 ).
+      MODIFY ydbs_t_limit FROM @ls_limit.
+      adding_error_message(
+        EXPORTING
+          iv_message  = ls_error_text-value
+        CHANGING
+          ct_messages = rt_messages
+      ).
+*limit tarihçeli tutulsun denmişti sonradan son 2 güne düşürdük.
+        lv_yesterday = ls_time_info-date - 1.
+        DELETE FROM ydbs_t_limit WHERE companycode    = @ms_service_info-companycode
+                                   AND bankinternalid = @ms_service_info-bankinternalid
+                                   AND customer       = @ms_subscribe-customer
+                                   AND currency       = @ms_service_info-currency
+                                   AND limit_date     < @lv_yesterday.
     ELSE.
       adding_error_message(
         EXPORTING

@@ -115,15 +115,10 @@
                         ( code = '0799'    message = 'Diğer Hata' )
 
 
-                        ( code = '0801' message = 'Hesap kurumun MARS’ına bağlı olmalıdır.' )
-                        ( code = '0802' message = 'Sadece vadesiz hesaplar için bakiye sorgulama yapılabilir' )
-                        ( code = '0803' message = 'Şube kodu hatalı' )
-                        ( code = '0804' message = 'Hesap hatalı' )
-                        ( code = '0805' message = 'IBAN hatalı' )
-                        ( code = '0806' message = 'TC Kimlik no formatı hatalı.' )
-                        ( code = '0807' message = 'TC Kimlik no bilgisi hatalı.' )
-                        ( code = '0808' message = 'VKN formatı hatalı.' )
-                        ( code = '0809' message = 'VKN bilgisi hatalı' )
+                        ( code = '0801' message = 'Alıcı tanımsız ve bilgiler boş' )
+                        ( code = '0802' message = 'Bayi hesabı iptal ve bilgiler boş' )
+                        ( code = '0803' message = 'Bayi hesabı iptal veya Son Yükleme tarihi dolmuş' )
+
 
                         ( code = '9101' message = 'Hatalı sertifika no' )
                         ( code = '9102' message = 'Bu sertifika no ile ilgili işlem yapılamaz.' )

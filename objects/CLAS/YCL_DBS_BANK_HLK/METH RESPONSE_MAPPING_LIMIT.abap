@@ -39,9 +39,9 @@
       CHANGING
         data             = ls_json
     ).
+    DATA(ls_time_info) = ycl_dbs_common=>get_local_time(  ).
     IF ls_json-errordetails-errorcode IS INITIAL.
       DATA ls_limit TYPE ydbs_t_limit.
-      DATA(ls_time_info) = ycl_dbs_common=>get_local_time(  ).
       READ TABLE ls_json-limitsorgularesponse-dbs_limit_sorgularesult INTO DATA(ls_result) INDEX 1.
 
       ls_limit = VALUE #( companycode    = ms_service_info-companycode
@@ -64,6 +64,34 @@
                                                                 message_v2 = ms_service_info-companycode  ) TO rt_messages.
 *limit tarihçeli tutulsun denmişti sonradan son 2 güne düşürdük.
         DATA lv_yesterday TYPE d.
+        lv_yesterday = ls_time_info-date - 1.
+        DELETE FROM ydbs_t_limit WHERE companycode    = @ms_service_info-companycode
+                                   AND bankinternalid = @ms_service_info-bankinternalid
+                                   AND customer       = @ms_subscribe-customer
+                                   AND currency       = @ms_service_info-currency
+                                   AND limit_date     < @lv_yesterday.
+    ELSEIF ls_json-errordetails-errorcode = '002' or "Müşteri Bulunamadı.
+           ls_json-errordetails-errorcode = '014' .  "Bayi TL Hesabı Kapalı.
+      ls_limit = VALUE #( companycode    = ms_service_info-companycode
+                          bankinternalid = ms_service_info-bankinternalid
+                          customer       = ms_subscribe-customer
+                          currency       = ms_service_info-currency
+                          limit_timestamp = ls_time_info-timestamp
+                          limit_date      = ls_time_info-date
+                          limit_time      = ls_time_info-time
+                          total_limit     = 0
+                          available_limit = 0
+                          risk            = 0
+                          maturity_amount = 0
+                          maturity_invoice_count = 0
+                          ).
+      MODIFY ydbs_t_limit FROM @ls_limit.
+      adding_error_message(
+        EXPORTING
+          iv_message  = ls_json-errordetails-errormessage
+        CHANGING
+          ct_messages = rt_messages
+      ).
         lv_yesterday = ls_time_info-date - 1.
         DELETE FROM ydbs_t_limit WHERE companycode    = @ms_service_info-companycode
                                    AND bankinternalid = @ms_service_info-bankinternalid
