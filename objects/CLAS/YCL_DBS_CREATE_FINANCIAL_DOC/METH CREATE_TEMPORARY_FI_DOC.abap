@@ -32,6 +32,7 @@
               reference3idbybusinesspartner TYPE xref3,
               documentitemtext              TYPE sgtxt,
               specialglcode                 TYPE yeho_e_umskz,
+              DueCalculationBaseDate        TYPE dzfbdt,
               _currencyamount               TYPE tt_currencyamount,
             END OF ty_aritems.
     DATA lt_je             TYPE TABLE FOR ACTION IMPORT i_journalentrytp~post.
@@ -62,6 +63,7 @@
                         reference2idbybusinesspartner = ms_invoice_data-reference2idbybusinesspartner
                         reference3idbybusinesspartner = ms_invoice_data-reference3idbybusinesspartner
                         documentitemtext              = ms_invoice_data-documentitemtext
+                        DueCalculationBaseDate        = ms_invoice_data-duecalculationbasedate
                         _currencyamount = VALUE #( ( currencyrole = '00'
                                                     journalentryitemamount = -1 * ms_invoice_data-invoiceamount
                                                     currency = ms_invoice_data-transactioncurrency  ) ) ) TO lt_aritem.
