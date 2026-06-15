@@ -83,6 +83,7 @@
              bseg~documentdate,
              bseg~postingdate,
              bseg~duecalculationbasedate,
+             bseg~NetDueDate,
              bseg~cashdiscount1days,
              send~invoiceduedate,
              send~invoiceduedate as querydate,

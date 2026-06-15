@@ -63,7 +63,7 @@
                         reference2idbybusinesspartner = ms_invoice_data-reference2idbybusinesspartner
                         reference3idbybusinesspartner = ms_invoice_data-reference3idbybusinesspartner
                         documentitemtext              = ms_invoice_data-documentitemtext
-                        DueCalculationBaseDate        = ms_invoice_data-duecalculationbasedate
+                        DueCalculationBaseDate        = ms_invoice_data-netduedate
                         _currencyamount = VALUE #( ( currencyrole = '00'
                                                     journalentryitemamount = -1 * ms_invoice_data-invoiceamount
                                                     currency = ms_invoice_data-transactioncurrency  ) ) ) TO lt_aritem.
