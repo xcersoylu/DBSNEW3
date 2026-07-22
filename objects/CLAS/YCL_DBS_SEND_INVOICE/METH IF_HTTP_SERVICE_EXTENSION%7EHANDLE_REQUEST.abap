@@ -4,6 +4,7 @@
     DATA lt_log TYPE TABLE OF ydbs_t_log.
     DATA lt_all_log TYPE ydbs_t_all_log_tab.
     DATA lv_error TYPE c LENGTH 1.
+    DATA lv_total_invoice_amount TYPE wrbtr.
     DATA(lv_request_body) = request->get_text( ).
     DATA(lv_get_method) = request->get_method( ).
     /ui2/cl_json=>deserialize( EXPORTING json = lv_request_body CHANGING data = ms_request ).
@@ -28,13 +29,20 @@
                                                  AND limit~currency = invoicedata~transactioncurrency
         INTO TABLE @DATA(lt_limit).
         SORT lt_limit BY companycode bankinternalid customer currency limit_timestamp DESCENDING.
-        LOOP AT ms_request-invoicedata INTO ls_invoice_data.
-          READ TABLE lt_limit INTO DATA(ls_limit) WITH KEY companycode = ls_invoice_data-companycode
-                                                           bankinternalid = ls_invoice_data-bankinternalid
-                                                           customer = ls_invoice_data-customer
-                                                           currency = ls_invoice_data-transactioncurrency BINARY SEARCH.
+        LOOP AT ms_request-invoicedata INTO DATA(ls_invoice_group) GROUP BY ( companycode = ls_invoice_group-companycode
+                                                                              bankinternalid = ls_invoice_group-bankinternalid
+                                                                              customer = ls_invoice_group-customer
+                                                                              currency = ls_invoice_group-transactioncurrency ).
+          CLEAR lv_total_invoice_amount.
+          LOOP AT GROUP ls_invoice_group INTO DATA(ls_member).
+            lv_total_invoice_amount += ls_member-invoiceamount.
+          ENDLOOP.
+          READ TABLE lt_limit INTO DATA(ls_limit) WITH KEY companycode = ls_invoice_group-companycode
+                                                           bankinternalid = ls_invoice_group-bankinternalid
+                                                           customer = ls_invoice_group-customer
+                                                           currency = ls_invoice_group-transactioncurrency BINARY SEARCH.
           IF sy-subrc = 0.
-            IF ls_limit-available_limit < ls_invoice_data-invoiceamount.
+            IF ls_limit-available_limit < lv_total_invoice_amount.
               lv_error = abap_true.
               APPEND VALUE #( id = 'YDBS_MC' type = mc_error number = 027 message_v1 = ls_invoice_data-customer message_v2 = ls_limit-available_limit ) TO ms_response-messages.
             ENDIF.
