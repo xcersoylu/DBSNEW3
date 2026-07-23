@@ -44,11 +44,11 @@
           IF sy-subrc = 0.
             IF ls_limit-available_limit < lv_total_invoice_amount.
               lv_error = abap_true.
-              APPEND VALUE #( id = 'YDBS_MC' type = mc_error number = 027 message_v1 = ls_invoice_data-customer message_v2 = ls_limit-available_limit ) TO ms_response-messages.
+              APPEND VALUE #( id = 'YDBS_MC' type = mc_error number = 027 message_v1 = ls_invoice_group-customer message_v2 = ls_limit-available_limit ) TO ms_response-messages.
             ENDIF.
           ELSE.
             lv_error = abap_true.
-            APPEND VALUE #( id = 'YDBS_MC' type = mc_error number = 028 message_v1 = ls_invoice_data-customer ) TO ms_response-messages.
+            APPEND VALUE #( id = 'YDBS_MC' type = mc_error number = 028 message_v1 = ls_invoice_group-customer ) TO ms_response-messages.
           ENDIF.
           CLEAR ls_limit.
         ENDLOOP.
