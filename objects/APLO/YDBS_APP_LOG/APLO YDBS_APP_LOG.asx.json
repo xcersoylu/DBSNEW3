@@ -5,7 +5,8 @@
   [
    {
     "OBJECT":"YDBS_APP_LOG",
-    "ABAP_LANGUAGE_VERSION":"5"
+    "ABAP_LANGUAGE_VERSION":"5",
+    "DEFAULT_DB_VERSION":""
    }
   ]
  },
@@ -31,11 +32,13 @@
   [
    {
     "OBJECT":"YDBS_APP_LOG",
-    "SUBOBJECT":"YDBS_CLEARING_LOG"
+    "SUBOBJECT":"YDBS_CLEARING_LOG",
+    "DEFAULT_DB_VERSION":""
    },
    {
     "OBJECT":"YDBS_APP_LOG",
-    "SUBOBJECT":"YDBS_LIMIT_LOG"
+    "SUBOBJECT":"YDBS_LIMIT_LOG",
+    "DEFAULT_DB_VERSION":""
    }
   ]
  },

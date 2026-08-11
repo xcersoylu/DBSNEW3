@@ -1,27 +1,27 @@
 [
  {
-  "table":"BALSUB",
+  "table":"APS_COM_W_CSCNIA",
   "nametab":
   [
    {
-    "NAME":"OBJECT",
+    "NAME":"COMMUNICATION_SCENARIO_ID",
     "KEY":"X",
     "TYPE":"C",
-    "LENGTH":20,
+    "LENGTH":30,
     "DECIMALS":-1
    },
    {
-    "NAME":"SUBOBJECT",
+    "NAME":"IMG_ACTIVITY_NUMBER",
     "KEY":"X",
-    "TYPE":"C",
-    "LENGTH":20,
+    "TYPE":"N",
+    "LENGTH":4,
     "DECIMALS":-1
    },
    {
-    "NAME":"DEFAULT_DB_VERSION",
+    "NAME":"IMG_ACTIVITY_ID",
     "KEY":"",
     "TYPE":"C",
-    "LENGTH":4,
+    "LENGTH":20,
     "DECIMALS":-1
    }
   ],
@@ -29,7 +29,7 @@
   [
    {
     "CLIENTDEPENDENCY":"NO",
-    "DELIVERYCLASS":"E",
+    "DELIVERYCLASS":"S",
     "TABART":"APPL2",
     "TABFORM":"T",
     "REFNAME":"-"
